@@ -1,8 +1,10 @@
-state = {
-  good: 0,
-  neutral: 0,
-  bad: 0,
-};
+import { FeedbackButton } from './FeedbackButton/FeedbackButton';
+
+// state = {
+//   good: 0,
+//   neutral: 0,
+//   bad: 0,
+// };
 
 export const App = () => {
   return (
@@ -16,7 +18,7 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      React homework template
+      <FeedbackButton />
     </div>
   );
 };
