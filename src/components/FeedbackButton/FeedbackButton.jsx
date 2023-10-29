@@ -1,18 +1,21 @@
 import css from './FeedbackButton.module.css';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
 
-// export const FeedbackButton = {};
+export const FeedbackButtons = ({ options, onFeedback }) => (
+  <div className={css.buttons}>
+    {options.map(option => (
+      <button
+        className={css.btn}
+        key={option}
+        onClick={() => onFeedback(option)}
+      >
+        {option}
+      </button>
+    ))}
+  </div>
+);
 
-export class FeedbackButton extends Component {
-  static defaultProps = { title: 'Reviev button' };
-  static propTypes = { title: PropTypes.string };
-
-  render() {
-    return (
-      <div>
-        <button onClick={event => console.log('event')}>{this.title}</button>
-      </div>
-    );
-  }
-}
+FeedbackButtons.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onFeedback: PropTypes.func.isRequired,
+};
